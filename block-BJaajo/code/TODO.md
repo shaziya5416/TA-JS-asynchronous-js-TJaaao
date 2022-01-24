@@ -7,7 +7,7 @@ console.log('First');
 setTimeout(() => console.log('Second'), 0);
 console.log('Third');
 ```
-
+// first third second
 2.
 
 ```js
@@ -19,7 +19,7 @@ setTimeout(secondCall, 2000); // execute this code after 1000 ms
 setTimeout(() => console.log('Third'), 0); // execute this code after 1000 ms
 console.log('Third');
 ```
-
+// first,Third,Third second
 3.
 
 ```js
@@ -31,7 +31,7 @@ setTimeout(secondCall, 1000); // execute this code after 1000 ms
 setTimeout(() => console.log('Third'), 0);
 console.log('Fourth');
 ```
-
+// First, Fourth,Third,Second
 4.
 
 ```js
@@ -42,6 +42,7 @@ function secondCall() {
 setTimeout(secondCall, 1000); // execute this code after 1000 ms
 setTimeout(() => console.log('Third'), 0);
 console.log('Fourth');
+// same as above
 ```
 
 5. What will be the output of the code below and why? Also write the timing of the output starting with 0 ms.
@@ -61,14 +62,18 @@ setTimeout(function exec() {
 runWhileLoopForNSeconds(3);
 console.log('Third');
 ```
-
+// First,Third,Second
 6. Convert the synchronous code given below into asynchronous. If you execute this code it will print one, two and three. Change the code in such a way that it should print `one`, `three` and `two`. You are not allowed to move the code up and down.
 
 ```js
 console.log('one');
-console.log('two');
+setTimeout('two');
 console.log('three');
 ```
+//
+console.log('First');
+setTimeout(() => console.log('Second'), 0);
+console.log('Third');
 
 7. Convert the synchronous code given below into asynchronous. If you execute this code it will print one, two and three. Change the code in such a way that it should print `one`, `three` and `two`. You are not allowed to move the code up and down.
 
@@ -77,12 +82,13 @@ console.log('one');
 console.log('two');
 console.log('three');
 ```
+//same as above
 
 8. Write a function named `asyncForEach` that is similar to `forEach`. But `asyncForEach` is asynchronous in nature rather than synchronous.
 
 ```js
-funciton asyncForEach(){
-  //
+function asyncForEach(arr,cb){
+setTimeOut((arr)=>{arr.forEach(cb)},0);
 }
 //  Output of the function below should be
 // one
@@ -108,6 +114,6 @@ Convert the code below in such way that the output should be the one below
 
 ```js
 console.log('First Call');
-[1, 2, 3, 4, 5].firEach((num) => console.log(num));
+setTimeOut([1, 2, 3, 4, 5].forEach((num) => console.log(num))),0;
 console.log('Last Call');
 ```
