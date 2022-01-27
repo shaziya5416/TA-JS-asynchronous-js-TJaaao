@@ -55,8 +55,7 @@ const three = new Promise((resolve, reject) =>
   setTimeout(() => resolve('John'), 3000)
 );
 ```
-Promise.allSettled([one, two, three]).then((data) =>
-  console.log(data,'allSettled')
+Promise.allSettled([one, two, three]).then(console.log)
 );
 //wont work with all beacuse on epromise is rejected and hence error will come up
 
